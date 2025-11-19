@@ -3,7 +3,7 @@ import usersReducer from "./usersSlice"; //Acá no va con {} ya  que con default
 
 const store = configureStore({
     reducer: {
-        users: usersReducer,  //objto que se va a traer
+        users: usersReducer,  //objto que estamos guardando
     },
 });
 
