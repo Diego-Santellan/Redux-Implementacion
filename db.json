@@ -1,16 +1,20 @@
 {
-    "products":[
-        {
-            "name":"producto1",
-            "id":111
-        },
-        {
-            "name":"producto2",
-            "id":222
-        },
-        {
-            "name":"producto3",
-            "id":333
-        }
-    ]
+  "products": [
+    {
+      "name": "producto1",
+      "id": "111"
+    },
+    {
+      "name": "producto2",
+      "id": "222"
+    },
+    {
+      "name": "producto3",
+      "id": "333"
+    },
+    {
+      "id": 1763737878835,
+      "name": "producto4"
+    }
+  ]
 }
