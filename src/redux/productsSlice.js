@@ -9,10 +9,19 @@ const productsSlice = createSlice ({
         createProduct :(state, action)=>{
             state.data.push(action.payload);
         },
+
         readProducts :(state, action)=>{
             state.data = action.payload;
         },
-        updateProduct :(state, action)=>{},
+
+        updateProduct :(state, action)=>{
+            const {id, name} = action.payload;
+            const product = state.data.find((product) => product.id === id); //buscamos el produto con el mismo id en el arreglo del objeto data
+            if(product){
+                product.name = name;//actulizamos el nombre del producto
+            }
+        },
+
         deleteProduct :(state, action)=>{}
     },
 });
