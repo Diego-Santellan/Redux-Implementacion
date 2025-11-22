@@ -26,7 +26,8 @@ const ProductsList = () =>{
     // funcion para crear producto 
     const handleCreateProduct = () => { //se va a ejecutar cunado tenga algo
         if(newProductName){ //si la variable tinene algo entra
-            const newProduct = { id: Date.now(), name: newProductName}; //destructuramos el producto para asignarle un ahi y nuevo nombre
+            // const newProduct = { id: Date.now(), name: newProductName}; // ACA TUVIMOS QUE CASTIAR EL ID COMO ESTRING PORQUE SINO PRESENTABA ERRORER AL ACTUALIZAR 
+            const newProduct = { id: String(Date.now()), name: newProductName}; //destructuramos el producto para asignarle un ahi y nuevo nombre
             dispatch(createProduct(newProduct));
 
             axios
