@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createProduct, readProducts, updateProduct } from "../redux/productsSlice";
+import { createProduct, deleteProduct, readProducts, updateProduct } from "../redux/productsSlice";
 
 const ProductsList = () =>{
 
@@ -37,6 +37,7 @@ const ProductsList = () =>{
                 .catch((err) => { console.error(err)});
         }
     };
+    
     const handleUpdateProduct = () => {
         // if(editProduct){ /* de esta manera me podia modificar si llegaba algo vacio */
         if(editProduct.name != ""){
@@ -49,7 +50,14 @@ const ProductsList = () =>{
 
         }
     };
-    const handleDeleteProduct = () => { };
+
+    const handleDeleteProduct = (id) => { 
+      dispatch(deleteProduct(id));
+
+      axios
+        .delete(`http://localhost:3001/products/${id}`) /* no ponemos el metodo then() porque: se elimina, luego lo va a dectectar y actualiza*/
+        .catch((err) => { console.error(err)});                     /* solo dejamos el catch para capturar en caso de haber algun tipo de error */
+    };
 
     return(
         <>
@@ -71,7 +79,7 @@ const ProductsList = () =>{
                             <div>
                                 <span>{product.name}</span>
                                 <button onClick={() => setEditProduct(product)}>Editar</button>
-                                <button>Eliminar</button>
+                                <button onClick={() => handleDeleteProduct(product.id)}>Eliminar</button>
                             </div>
                         )}
 
